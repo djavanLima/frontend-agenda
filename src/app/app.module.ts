@@ -3,16 +3,52 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//importar material
+import {MatToolbarModule} from   '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import { ContatoComponent } from './contato/contato.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+//import service
+import {ContatoService} from './contato.service';
+
+//http para requisições da api
+import {HttpClientModule} from '@angular/common/http';
+//formulários reativos
+import { FormsModule } from '@angular/forms';
+//formulários reativos
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    MatCardModule,
+    MatTableModule,
+    MatTabsModule
   ],
-  providers: [],
+  providers: [
+    ContatoService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,100 @@
+<mat-toolbar >
+  <mat-icon >account_circle</mat-icon>
+  Agenda
+  
+</mat-toolbar>
+
+
+<mat-tab-group>
+  <mat-tab >
+    <ng-template mat-tab-label>
+          <mat-icon>list </mat-icon>
+            Todos
+    </ng-template>
+      <mat-card>  
+
+            <table mat-table [dataSource]="contatos" class="full-width">
+
+
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let contato"> {{contato.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="nome">
+                  <th mat-header-cell *matHeaderCellDef> NOME </th>
+                  <td mat-cell *matCellDef="let contato"> {{contato.nome}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+                  <td mat-cell *matCellDef="let contato"> {{contato.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="favorito">
+                  <th mat-header-cell *matHeaderCellDef> FAVORITO </th>
+                  <td mat-cell *matCellDef="let contato"> {{contato.favorito}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+                <tr mat-row *matRowDef="let row; columns:colunas;"></tr>
+
+
+
+            </table>
+
+      </mat-card>
+
+
+
+  </mat-tab>
+
+  <mat-tab > 
+
+              <ng-template mat-tab-label>
+                  <mat-icon>face </mat-icon>
+                    Novo Contato
+              </ng-template>
+
+      <mat-card class="half-width">
+
+          <mat-card-title>Contato</mat-card-title>
+
+          <form id="formulario" [formGroup]="formulario" (ngSubmit)="submit()"> 
+
+            <mat-form-field class="full-width">
+              <mat-label>Nome</mat-label>
+              <input formControlName="nome" matInput placeholder="Digite seu nome" value="">
+            </mat-form-field>
+          
+                  <div *ngIf="formulario.controls.nome.errors">
+                    <div  *ngIf="formulario.controls.nome.errors.required">
+                      Campo nome é obrigatório
+                    </div>
+                  </div>
+          
+            <mat-form-field class="full-width">
+                <mat-label>Email:</mat-label>
+                <input formControlName="email" matInput placeholder="Digite seu e-mail" value="">
+              </mat-form-field>
+          
+                  <div *ngIf="formulario.controls.email.errors">
+                      <div *ngIf="formulario.controls.email.errors.email">
+                        O campo de email deve ser preenchido corretamente
+                      </div>
+                      <div *ngIf="formulario.controls.email.errors.required">
+                        Campo de email é obrigatório
+                      </div>
+                  </div>
+          
+                  <br>
+          
+              <button  mat-raised-button color="primary" style="margin-left:1rem;"> Adicionar </button>
+              <button  mat-raised-button color="primary" style="margin-left:1rem;"> Cancelar</button>
+          </form>
+
+        </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+
