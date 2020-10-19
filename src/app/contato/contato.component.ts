@@ -17,14 +17,18 @@ export class ContatoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listarContato();
+    this.montarFormulario()
+  }
+
+  montarFormulario(){
     this.formulario = this.fb.group({
       nome:['',Validators.required],
       email:['',[Validators.email, Validators.required]]
 
     });
-    
-
   }
+
 
   submit(){
     const formValue =this.formulario.value;
@@ -34,7 +38,15 @@ export class ContatoComponent implements OnInit {
            this.contatos.push(resposta);
            console.log(this.contatos);
     });
-  
+      
+  }
+
+
+
+  listarContato(){
+    this.service.list().subscribe(response=>{
+      this.contatos = response;
+    });
   }
 
 
