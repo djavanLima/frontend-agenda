@@ -23,7 +23,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 //formulários reativos
 import { ReactiveFormsModule } from '@angular/forms';
+//importar dialog
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatCardModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule, 
+    MatDialogModule
   ],
   providers: [
     ContatoService
