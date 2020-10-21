@@ -14,7 +14,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
-//import service
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+//import service;
 import {ContatoService} from './contato.service';
 
 //http para requisições da api
@@ -26,11 +28,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 //importar dialog
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { DetalheContatoComponent } from './detalhe-contato/detalhe-contato.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContatoComponent
+    ContatoComponent,
+    DetalheContatoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatTableModule,
     MatTabsModule, 
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    MatSnackBarModule
   ],
   providers: [
     ContatoService
